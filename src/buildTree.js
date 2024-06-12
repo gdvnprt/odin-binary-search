@@ -1,0 +1,26 @@
+import Node from './node.js';
+import mergeSort from './sort.js';
+
+export default function buildTree(arr) {
+    //sort the array
+    const sortedArray = mergeSort(arr);
+
+    return sortedToBST(sortedArray);
+};
+
+//recursion helper
+const sortedToBST = (arr, start, end) => {
+    //base case
+    if (start > end) {
+        return null;
+    }
+    //find the middle element and make it the root
+    let mid = parseInt((start + end) / 2);
+    let node = new Node(arr[mid]);
+
+    //recursively construct left and right subtrees
+    node.left = sortedToBST(arr, start, mid - 1);
+    node.right = sortedToBST(arr, mid + 1, end);
+
+    return node;
+};

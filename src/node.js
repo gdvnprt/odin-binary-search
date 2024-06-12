@@ -1,4 +1,4 @@
-export default function makeNode(dat) {
+export default Node = (dat) => {
     let data = dat | null;
     let left = null;
     let right = null;
