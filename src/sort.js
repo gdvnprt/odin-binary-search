@@ -1,3 +1,5 @@
+//need to find a way to remove duplicates
+
 export default function mergeSort(array) {
     //if the array is one number, return that number
     if (array.length <= 1) {
