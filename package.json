@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Binary Search Tree project for The Odin Project learning",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
