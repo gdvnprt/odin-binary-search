@@ -1,9 +1,9 @@
 import Node from './node.js';
-import mergeSort from './sort.js';
+import sortArr from './sort.js';
 
 export default function buildTree(arr) {
     //sort the array
-    const sortedArray = mergeSort(arr);
+    const sortedArray = sortArr(arr);
 
     return sortedToBST(sortedArray);
 };

@@ -1,5 +1,5 @@
 import Node from './node.js';
-import mergeSort from './sort.js';
+import sortArr from './sort.js';
 import buildTree from './buildTree.js';
 import prettyPrint from './visualizer.js';
 
