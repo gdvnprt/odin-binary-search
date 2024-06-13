@@ -2,6 +2,8 @@
   "name": "odin-binary-search",
   "version": "1.0.0",
   "description": "Binary Search Tree project for The Odin Project learning",
+  "type": "git",
+  "url": "git+https://github.com/gdvnprt/odin-binary-search.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
