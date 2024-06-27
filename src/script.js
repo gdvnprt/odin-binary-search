@@ -40,6 +40,20 @@ const Tree = (arr) => {
 
     const find = (val) => {
         //returns the node with the given value
+        //traverse tree
+        let pointer = root;
+        while (val > pointer.data && pointer.right) {
+            pointer = pointer.right;
+        };
+        while (val < pointer.left && pointer.left) {
+            pointer = pointer.left;
+        };
+        //return value
+        if (val === pointer.data) {
+            return pointer;
+        } else {
+            return null;
+        };
     };
 
     const inOrder = (callback) => {
