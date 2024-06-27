@@ -10,7 +10,28 @@ const Tree = (arr) => {
 
     const insert = (val) => {
         //inserts a value into the tree
+        let pointer = root;
+        //traverse tree
+        while (val > pointer.data && pointer.right) {
+            pointer = pointer.right;
+        };
+        while (val < pointer.left && pointer.left) {
+            pointer = pointer.left;
+        };
+        //make new node in roughly correct spot
+        if (val > pointer.data && pointer.right === null) {
+            pointer.right = new Node(val);
+        };
+        if (val < pointer.data && pointer.left === null) {
+            pointer.left = new Node(val);
+        };
+
+        //check and rebalance tree
+        if (!(isBalanced(root))) {
+            rebalance(root);
+        };
     };
+
 
     const deleteItem = (val) => {
         //deletes a value from the tree
@@ -59,3 +80,4 @@ const Tree = (arr) => {
 
     return {root, visualizer, insert, deleteItem, find, inOrder, preOrder, postOrder, height, depth, isBalanced, rebalance};
 };
+
