@@ -35,7 +35,42 @@ const Tree = (arr) => {
 
     const deleteItem = (val) => {
         //deletes a value from the tree
+        //traverse tree
+        let pointer = root;
+        while (val > pointer.data && pointer.right) {
+            pointer = pointer.right;
+        };
+        while (val < pointer.left && pointer.left) {
+            pointer = pointer.left;
+        };
+
+        //remove value
         //need to deal with multiple cases - if node has children or not
+        if (pointer.data !== val) {
+            return null;
+        }
+        if (pointer.data === val && !(pointer.left) && !(pointer.right)) {
+            pointer = null;
+            return "Complete";
+        };
+        if (pointer.data === val && pointer.left && !(pointer.right)) {
+            pointer = pointer.left;
+            return "Complete";
+        };
+        //need to fix these two
+        if (pointer.data === val && !(pointer.left) && pointer.right) {
+            pointer = pointer.right;
+            return "Complete";
+        };
+        if (pointer.data === val && pointer.left && pointer.right) {
+            pointer = ;
+            return "Complete";
+        };
+
+        //check and rebalance tree
+        if (!(isBalanced(root))) {
+            rebalance(root);
+        };
     };
 
     const find = (val) => {
