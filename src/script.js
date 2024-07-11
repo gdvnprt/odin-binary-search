@@ -49,20 +49,39 @@ const Tree = (arr) => {
         if (pointer.data !== val) {
             return null;
         }
-        if (pointer.data === val && !(pointer.left) && !(pointer.right)) {
-            pointer = null;
+        if (pointer.left.data === val && !(pointer.left.left) && !(pointer.left.right)) {
+            pointer.left = null;
             return "Complete";
         };
-        if (pointer.data === val && pointer.left && !(pointer.right)) {
-            pointer = pointer.left;
+        if (pointer.right.data === val && !(pointer.right.left) && !(pointer.right.right)) {
+            pointer.right = null;
             return "Complete";
         };
-        //need to fix these two
-        if (pointer.data === val && !(pointer.left) && pointer.right) {
-            pointer = pointer.right;
+        if (pointer.left.data === val && pointer.left.left && !(pointer.left.right)) {
+            let newLeft = pointer.left.left;
+            pointer.left = newLeft;
             return "Complete";
         };
+        if (pointer.right.data === val && pointer.right.left && !(pointer.right.right)) {
+            let newRight = pointer.right.left;
+            pointer.left = newRight;
+            return "Complete";
+        };
+        if (pointer.left.data === val && pointer.left.right && !(pointer.left.left)) {
+            let newLeft = pointer.left.right;
+            pointer.left = newLeft;
+            return "Complete";
+        };
+        if (pointer.right.data === val && pointer.right.right && !(pointer.right.left)) {
+            let newRight = pointer.right.right;
+            pointer.left = newRight;
+            return "Complete";
+        };
+            //need to fix
         if (pointer.data === val && pointer.left && pointer.right) {
+            //right child takes place of deleted node
+            //left children become left children of new node in place
+            //what to do with current left children?
             pointer = ;
             return "Complete";
         };
