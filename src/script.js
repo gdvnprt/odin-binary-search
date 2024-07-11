@@ -82,7 +82,7 @@ const Tree = (arr) => {
             //right child takes place of deleted node
             //left children become left children of new node in place
             //what to do with current left children?
-            pointer = ;
+            pointer = null;
             return "Complete";
         };
 
