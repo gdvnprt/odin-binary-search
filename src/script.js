@@ -159,7 +159,7 @@ const Tree = (arr) => {
 
     const depth = (node) => {
         //returns given node's depth
-        //height = number of edges in longest path from a given node to the tree's root node
+        //depth = number of edges in the path from a given node to the tree’s root node
     };
 
     const isBalanced = () => {
@@ -168,9 +168,11 @@ const Tree = (arr) => {
     };
 
     const rebalance = () => {
-        //rebalances an unbalnced tree
+        //rebalances an unbalanced tree
         //traverses tree and generates an array
+        let newArr = inOrder();
         //feeds that array into buildTree
+        root = buildTree(newArr);
     };
 
     return {root, visualizer, insert, deleteItem, find, inOrder, preOrder, postOrder, height, depth, isBalanced, rebalance};
