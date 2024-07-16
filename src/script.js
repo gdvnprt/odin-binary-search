@@ -113,16 +113,43 @@ const Tree = (arr) => {
     const inOrder = (callback) => {
         //should traverse the tree in depth-first order and yield each node to the provided callback
         //returns an array of values if no callback is given as argument
+        let pointer =  callback || root;
+        let inOrderArr = [];
+        if (pointer === null) {
+            return;
+        };
+        inOrder(pointer.left);
+        inOrderArr.push(pointer.data);
+        inOrder(pointer.right)
+        return inOrderArr;
     };
 
     const preOrder = (callback) => {
         //should traverse the tree in depth-first order and yield each node to the provided callback
         //returns an array of values if no callback is given as argument
+        let pointer =  callback || root;
+        let preOrderArr = [];
+        if (pointer === null) {
+            return;
+        };
+        preOrder(pointer.left);
+        preOrder(pointer.right)
+        preOrderArr.push(pointer.data);
+        return preOrderArr;
     };
 
     const postOrder = (callback) => {
         //should traverse the tree in depth-first order and yield each node to the provided callback
         //returns an array of values if no callback is given as argument
+        let pointer =  callback || root;
+        let postOrderArr = [];
+        if (pointer === null) {
+            return;
+        };
+        postOrderArr.push(pointer.data);
+        postOrder(pointer.left);
+        postOrder(pointer.right)
+        return postOrderArr;
     };
 
     const height = (node) => {
