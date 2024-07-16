@@ -110,6 +110,23 @@ const Tree = (arr) => {
         };
     };
 
+    const levelOrder = (callback) => {
+        //callback optional
+        //traverse the tree in breadth-first level order and provide each node as an argument to the callback
+        let start = callback || root;
+        let queue = [start];
+        let result = [];
+        if (callback === null) {
+            return
+        };
+        while (queue[0]) {
+            result.push(queue[0].data);
+            queue.push(queue[0].left);
+            queue.push(queue[0].right);
+        };
+        return result;
+    };
+
     const inOrder = (callback) => {
         //should traverse the tree in depth-first order and yield each node to the provided callback
         //returns an array of values if no callback is given as argument
@@ -175,6 +192,6 @@ const Tree = (arr) => {
         root = buildTree(newArr);
     };
 
-    return {root, visualizer, insert, deleteItem, find, inOrder, preOrder, postOrder, height, depth, isBalanced, rebalance};
+    return {root, visualizer, insert, deleteItem, find, levelOrder, inOrder, preOrder, postOrder, height, depth, isBalanced, rebalance};
 };
 
