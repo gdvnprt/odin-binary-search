@@ -73,7 +73,7 @@ const Tree = (arr) => {
     };
 
     //helper function to find smallest node
-    const findSmallestNode = (node) {
+    const findSmallestNode = (node) => {
         while(!node.left === null) {
             node = node.left;
         };
