@@ -193,6 +193,15 @@ const Tree = (arr) => {
     const isBalanced = () => {
         //checks if the tree is balanced
         //balanced tree = difference between heights of left and right subtree of every node is not more than 1
+        const leftHeight = height(root.left);
+        const rightHeight = height(root.right);
+        const diff = Math.abs(leftHeight - rightHeight);
+
+        if (diff < 2) {
+            return true;
+        } else {
+            return false;
+        };
     };
 
     const rebalance = () => {
