@@ -172,6 +172,17 @@ const Tree = (arr) => {
     const height = (node) => {
         //returns given node's height
         //height = number of edges in longest path from a given node to a leaf node
+        if (node === null) {
+            return 0;
+        };
+        let leftHeight = height(node.left);
+        let rightHeight = height(node.right);
+
+        if (leftHeight > rightHeight) {
+            return leftHeight + 1;
+        } else {
+            return rightHeight + 1;
+        };
     };
 
     const depth = (node) => {
