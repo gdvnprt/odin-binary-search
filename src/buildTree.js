@@ -19,8 +19,8 @@ const sortedToBST = (arr, start, end) => {
     let node = new Node(arr[mid]);
 
     //recursively construct left and right subtrees
-    node.left = sortedToBST(arr, start, mid - 1);
-    node.right = sortedToBST(arr, mid + 1, end);
+    node.left = sortedToBST(arr, arr[0], arr[mid - 1]);
+    node.right = sortedToBST(arr, arr[mid + 1], arr[arr.length - 1]);
 
     return node;
 };
