@@ -33,29 +33,38 @@ const Tree = (arr) => {
     };
 
 
-    const deleteItem = (val, callback) => {
+    const deleteItem = (val, parent) => {
         //deletes a value from the tree
         //traverse tree
-        let pointer = callback || root;
+        let pointer = parent | root;
+        let gx = null;
         while (val > pointer.data && pointer.right) {
+            gx = pointer;
             pointer = pointer.right;
         };
         while (val < pointer.left && pointer.left) {
+            gx = pointer;
             pointer = pointer.left;
         };
         //remove value
         //need to deal with multiple cases - if node has children or not
-        if (pointer === null) {
-            return pointer
-        };
+        //if (pointer === null) {
+        //    return null;
+        //};
 
         if (val === pointer.data){
             if (pointer.left === null && pointer.right === null){
-                return null
+                if (gx.left.data = pointer.data) {
+                    gx.left = null;
+                } else {
+                    gx.right = null;
+                };
             }else if (pointer.left === null) {
-                return pointer.right;
+                pointer.data = pointer.right.data;
+                pointer.right = null;
             }else if (pointer.right === null) {
-                return pointer.left;
+                pointer.data = pointer.left.data;
+                pointer.left = null;
             }else {
                 //node with 2 children
                 //find inorder successor
