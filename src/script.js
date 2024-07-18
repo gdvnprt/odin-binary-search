@@ -176,14 +176,20 @@ const Tree = (arr) => {
     const depth = (node) => {
         //returns given node's depth
         //depth = number of edges in the path from a given node to the tree’s root node
-        let depth = 0;
-        if (node === null) return;
-        if (node === root) return `Depth: ${depth}`;
-
-        if (node.date < root.data) {
-            depth += 1;
-            return
-        }
+        let dpth = 0;
+        let pointer = root;
+        while (node.data > pointer.data && pointer.right) {
+            pointer = pointer.right;
+            dpth++;
+        };
+        while (node.data < pointer.data && pointer.left) {
+            pointer = pointer.left;
+            dpth++
+        };
+        //return depth value when matching node found
+        if (pointer.data === node.data) {
+            return `Depth = ${dpth}`;
+        };
     };
 
     const isBalanced = () => {
